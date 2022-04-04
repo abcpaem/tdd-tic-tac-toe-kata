@@ -42,4 +42,19 @@ public class TicTacToeTests {
         // Assert
         assertEquals(String.format("Player %c has a turn", currentPlayer), gameState);
     }
+
+    @Test
+    public void checkPlayersTakeTurns() {
+        // Arrange
+        TicTacToe game = new TicTacToe();
+
+        // Act
+        Character firstPlayer = game.getCurrentPlayer();
+        game.play();
+        Character nextPlayer = game.getCurrentPlayer();
+        Character expectedPlayer = firstPlayer == 'X' ? 'O' : 'X';
+
+        // Assert
+        assertEquals(expectedPlayer, nextPlayer);
+    }
 }

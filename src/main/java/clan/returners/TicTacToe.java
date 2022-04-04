@@ -23,6 +23,10 @@ public class TicTacToe {
     }
 
     public String play() {
-        return "Player " + currentPlayer + " has a turn";
+        String currentState = "Player " + currentPlayer + " has a turn";
+
+        currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
+
+        return currentState;
     }
 }
