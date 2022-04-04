@@ -29,4 +29,17 @@ public class TicTacToeTests {
         // Assert
         assertArrayEquals(new Character[]{'X', 'O'}, playerNames);
     }
+
+    @Test
+    public void checkFirstPlayerTurn() {
+        // Arrange
+        TicTacToe game = new TicTacToe();
+
+        // Act
+        Character currentPlayer = game.getCurrentPlayer();
+        String gameState = game.play();
+
+        // Assert
+        assertEquals(String.format("Player %c has a turn", currentPlayer), gameState);
+    }
 }
