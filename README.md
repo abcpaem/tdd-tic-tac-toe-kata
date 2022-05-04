@@ -41,7 +41,7 @@ Click [here](src/main/java/clan/techreturners/TicTacToe.java) to see the Tic Tac
 
 ## Technology
 This project was built using:
-- Java version 17.0.2
-- JUnit 5.8.2 for unit testing
-- Apache Maven 3.8.5 as project manager
-- Community Edition for the IntelliJ 2021.3.2 development environment.
+- Java 17.0.2
+- JUnit 5.8.2
+- Maven 3.8.5
+- IntelliJ 2021.3.2 (Community Edition).
