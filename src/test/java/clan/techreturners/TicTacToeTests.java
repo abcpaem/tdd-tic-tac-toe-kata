@@ -27,7 +27,7 @@ public class TicTacToeTests {
         TicTacToe game = new TicTacToe();
 
         // Act
-        Character[] playerNames = game.setupPlayers();
+        Character[] playerNames = game.getPlayers();
 
         // Assert
         assertArrayEquals(new Character[]{'X', 'O'}, playerNames);

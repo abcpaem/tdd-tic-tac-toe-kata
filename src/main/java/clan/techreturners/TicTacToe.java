@@ -3,30 +3,31 @@ package clan.techreturners;
 import java.util.Random;
 
 public class TicTacToe {
-    private Character currentPlayer;
-    char[][] board = {{' ', ' ', ' '},{' ', ' ', ' '},{' ', ' ', ' '}};
+    private int currentPlayerIndex;
+    private Character[] players = new Character[]{'X', 'O'};
+    char[][] board = {{' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '}};
 
     public TicTacToe() {
         Random r = new Random();
-        currentPlayer = r.nextBoolean() ? 'X' : 'O';
+        currentPlayerIndex = r.nextInt(2);
     }
 
     public Character getCurrentPlayer() {
-        return currentPlayer;
+        return players[currentPlayerIndex];
     }
 
     public int getBoardSize() {
         return board[0].length * board.length;
     }
 
-    public Character[] setupPlayers() {
-        return new Character[]{'X', 'O'};
+    public Character[] getPlayers() {
+        return players;
     }
 
     public String play() {
-        String currentState = "Player " + currentPlayer + " has a turn";
+        String currentState = "Player " + getCurrentPlayer() + " has a turn";
 
-        currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
+        currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
 
         return currentState;
     }
