@@ -22,6 +22,7 @@ The TDD approach will start with the simplest case scenario, then it will grow i
 2) Add test to check player names. See test [here](https://htmlview.glitch.me/?https://github.com/abcpaem/tdd-tic-tac-toe-kata/blob/main/docs/TestResults02.html).
 3) Add test to check the first player turn. See test [here](https://htmlview.glitch.me/?https://github.com/abcpaem/tdd-tic-tac-toe-kata/blob/main/docs/TestResults03.html).
 4) Add test to check that players take turns. See test [here](https://htmlview.glitch.me/?https://github.com/abcpaem/tdd-tic-tac-toe-kata/blob/main/docs/TestResults04.html).
+5) Add test to check that the game board is displayed. See test [here](https://htmlview.glitch.me/?https://github.com/abcpaem/tdd-tic-tac-toe-kata/blob/main/docs/TestResults05.html).
 
 
 ### What's next?:

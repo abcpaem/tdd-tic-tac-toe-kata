@@ -2,6 +2,10 @@ package clan.techreturners;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -56,5 +60,24 @@ public class TicTacToeTests {
 
         // Assert
         assertEquals(expectedPlayer, nextPlayer);
+    }
+
+    @Test
+    void checkDisplayBoard() {
+        // Arrange
+        ByteArrayOutputStream outputContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputContent));
+        TicTacToe game = new TicTacToe();
+
+        // Act
+        game.displayBoard();
+
+        // Assert
+        assertEquals("    1   2   3\r\n" +
+                "A     │   │  \r\n" +
+                "   ───┼───┼───\r\n" +
+                "B     │   │  \r\n" +
+                "   ───┼───┼───\r\n" +
+                "C     │   │  \r\n", outputContent.toString());
     }
 }
