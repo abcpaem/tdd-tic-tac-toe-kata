@@ -2,7 +2,6 @@ package clan.techreturners;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -16,7 +15,7 @@ public class TicTacToeTests {
         TicTacToe game = new TicTacToe();
 
         // Act
-        int playingBoardSize = game.setupPlayingBoard();
+        int playingBoardSize = game.getBoardSize();
 
         // Assert
         assertEquals(9, playingBoardSize);

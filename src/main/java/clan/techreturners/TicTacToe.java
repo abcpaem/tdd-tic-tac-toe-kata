@@ -15,8 +15,8 @@ public class TicTacToe {
         return currentPlayer;
     }
 
-    public int setupPlayingBoard() {
-        return 9;
+    public int getBoardSize() {
+        return board[0].length * board.length;
     }
 
     public Character[] setupPlayers() {
