@@ -1,9 +1,11 @@
 package clan.techreturners;
 
+import clan.techreturners.testhelper.RandomStub;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -36,14 +38,15 @@ public class TicTacToeTests {
     @Test
     public void checkFirstPlayerTurn() {
         // Arrange
-        TicTacToe game = new TicTacToe();
+        Random randomStub = new RandomStub(1);
+        TicTacToe game = new TicTacToe(randomStub);
+        Character expectedPlayer = 'O';
 
         // Act
         Character currentPlayer = game.getCurrentPlayer();
-        String gameState = game.play();
 
         // Assert
-        assertEquals(String.format("Player %c has a turn", currentPlayer), gameState);
+        assertEquals(expectedPlayer, currentPlayer);
     }
 
     @Test

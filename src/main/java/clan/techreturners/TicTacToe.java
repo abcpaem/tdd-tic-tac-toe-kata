@@ -8,8 +8,11 @@ public class TicTacToe {
     char[][] board = {{' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '}};
 
     public TicTacToe() {
-        Random r = new Random();
-        currentPlayerIndex = r.nextInt(2);
+        this(new Random());
+    }
+
+    public TicTacToe(Random rnd) {
+        currentPlayerIndex = rnd.nextInt(2);
     }
 
     public Character getCurrentPlayer() {

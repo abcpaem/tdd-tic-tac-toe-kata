@@ -25,6 +25,7 @@ The TDD approach will start with the simplest case scenario, then it will grow i
 5) Add test to check that the game board is displayed. See test [here](https://htmlview.glitch.me/?https://github.com/abcpaem/tdd-tic-tac-toe-kata/blob/main/docs/TestResults05.html).
 6) Refactor checkPlayingBoardSize test. See test still passing [here](https://htmlview.glitch.me/?https://github.com/abcpaem/tdd-tic-tac-toe-kata/blob/main/docs/TestResults06.html).
 7) Refactor checkPlayerNames test. See test still passing [here](https://htmlview.glitch.me/?https://github.com/abcpaem/tdd-tic-tac-toe-kata/blob/main/docs/TestResults07.html).
+8) Refactor checkFirstPlayerTurn test to add RandomStub. See test still passing [here](https://htmlview.glitch.me/?https://github.com/abcpaem/tdd-tic-tac-toe-kata/blob/main/docs/TestResults08.html).
 
 
 ### What's next?:
