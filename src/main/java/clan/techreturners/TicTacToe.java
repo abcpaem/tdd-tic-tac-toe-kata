@@ -1,11 +1,13 @@
 package clan.techreturners;
 
+import java.util.Map;
 import java.util.Random;
 
 public class TicTacToe {
     private int currentPlayerIndex;
     private Character[] players = new Character[]{'X', 'O'};
     char[][] board = {{' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '}};
+    Map<String, Integer> rows = Map.of("A", 0, "B", 1, "C", 2);
 
     public TicTacToe() {
         this(new Random());
@@ -27,12 +29,18 @@ public class TicTacToe {
         return players;
     }
 
-    public String play() {
-        String currentState = "Player " + getCurrentPlayer() + " has a turn";
+    public boolean play(String position) {
+        if (!isPositionAvailable(position)) return false;
+
+        board[rows.get(position.substring(0, 1))][Integer.parseInt(position.substring(1)) - 1] = getCurrentPlayer();
 
         currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
 
-        return currentState;
+        return true;
+    }
+
+    private boolean isPositionAvailable(String position) {
+        return Character.isWhitespace(board[rows.get(position.substring(0,1))][Integer.parseInt(position.substring(1))-1]);
     }
 
     public void displayBoard() {

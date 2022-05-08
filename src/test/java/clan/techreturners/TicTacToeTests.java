@@ -7,8 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Random;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TicTacToeTests {
     @Test
@@ -56,12 +55,24 @@ public class TicTacToeTests {
 
         // Act
         Character firstPlayer = game.getCurrentPlayer();
-        game.play();
+        game.play("A1");
         Character nextPlayer = game.getCurrentPlayer();
         Character expectedPlayer = firstPlayer == 'X' ? 'O' : 'X';
 
         // Assert
         assertEquals(expectedPlayer, nextPlayer);
+    }
+
+    @Test
+    public void checkPlayResultWhenBoardPositionIsAvailable() {
+        // Arrange
+        TicTacToe game = new TicTacToe();
+
+        // Act
+        boolean isValidMove = game.play("A1");
+
+        // Assert
+        assertTrue(isValidMove);
     }
 
     @Test
