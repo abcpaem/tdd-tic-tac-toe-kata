@@ -76,6 +76,19 @@ public class TicTacToeTests {
     }
 
     @Test
+    public void checkPlayResultWhenBoardPositionIsNotAvailable() {
+        // Arrange
+        TicTacToe game = new TicTacToe();
+
+        // Act
+        boolean isValidMove = game.play("A1");
+        isValidMove = game.play("A1"); // Second player is trying to play the same position
+
+        // Assert
+        assertFalse(isValidMove);
+    }
+
+    @Test
     void checkDisplayBoard() {
         // Arrange
         ByteArrayOutputStream outputContent = new ByteArrayOutputStream();
