@@ -1,5 +1,6 @@
 package clan.techreturners;
 
+import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
@@ -30,17 +31,21 @@ public class TicTacToe {
     }
 
     public boolean play(String position) {
-        if (!isPositionAvailable(position)) return false;
+        if (!isPositionValid(position) || !isPositionAvailable(position)) return false;
 
-        board[rows.get(position.substring(0, 1))][Integer.parseInt(position.substring(1)) - 1] = getCurrentPlayer();
+        board[rows.get(position.toUpperCase().substring(0, 1))][Integer.parseInt(position.substring(1)) - 1] = getCurrentPlayer();
 
         currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
 
         return true;
     }
 
+    private boolean isPositionValid(String position) {
+        return position != null && !position.isBlank() && position.toUpperCase().substring(0,1).matches("[ABC]") && position.substring(1).matches("[123]");
+    }
+
     private boolean isPositionAvailable(String position) {
-        return Character.isWhitespace(board[rows.get(position.substring(0,1))][Integer.parseInt(position.substring(1))-1]);
+        return Character.isWhitespace(board[rows.get(position.toUpperCase().substring(0,1))][Integer.parseInt(position.substring(1))-1]);
     }
 
     public void displayBoard() {

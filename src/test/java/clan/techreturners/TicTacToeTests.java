@@ -2,6 +2,8 @@ package clan.techreturners;
 
 import clan.techreturners.testhelper.RandomStub;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -83,6 +85,19 @@ public class TicTacToeTests {
         // Act
         boolean isValidMove = game.play("A1");
         isValidMove = game.play("A1"); // Second player is trying to play the same position
+
+        // Assert
+        assertFalse(isValidMove);
+    }
+
+    @ParameterizedTest(name = "{index}) Position {0} is not valid")
+    @ValueSource(strings = {" ", "D1", "X4", "null", "WHATEVER"})
+    public void checkPlayResultWhenBoardPositionIsNotValid(String position) {
+        // Arrange
+        TicTacToe game = new TicTacToe();
+
+        // Act
+        boolean isValidMove = game.play(position.equals("null") ? null : position);
 
         // Assert
         assertFalse(isValidMove);
