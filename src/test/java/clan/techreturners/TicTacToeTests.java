@@ -105,7 +105,7 @@ public class TicTacToeTests {
     }
 
     @ParameterizedTest(name = "Positions played with no winner: {0}")
-    @ValueSource(strings = "A1,A2,A3,B1,B2,B3,C1,C2,C3")
+    @ValueSource(strings = "A1,A2,A3,C1,B2,B3,B1,C3,C2")
     public void checkIsGameOverWithNoWinner(String moves) {
         // Arrange
         TicTacToe game = new TicTacToe();
@@ -150,6 +150,27 @@ public class TicTacToeTests {
             A3,A2,B3,A1,C3
             """)
     public void checkIsGameOverWithColumnWinner(String moves) {
+        // Arrange
+        TicTacToe game = new TicTacToe();
+        String[] positions = moves.split(",");
+        Character firstPlayer = game.getCurrentPlayer();
+
+        // Act
+        for (String pos : positions) {
+            game.play(pos);
+        }
+        Character winner = game.getWinner();
+
+        //Assert
+        assertTrue(game.isGameOver() && winner == firstPlayer);
+    }
+
+    @ParameterizedTest(name = "{index}) For game: {0} the winner is the first player")
+    @CsvSource(delimiter = '|', textBlock = """
+            A1,A2,B2,A3,C3
+            A3,A1,B2,A2,C1
+            """)
+    public void checkIsGameOverWithDiagonalWinner(String moves) {
         // Arrange
         TicTacToe game = new TicTacToe();
         String[] positions = moves.split(",");

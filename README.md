@@ -32,6 +32,7 @@ The TDD approach will start with the simplest case scenario, then it will grow i
 12) Add test to check game over with no winner. See test [here](https://htmlview.glitch.me/?https://github.com/abcpaem/tdd-tic-tac-toe-kata/blob/main/docs/TestResults12.html).
 13) Add test to check game over with raw winner. See test [here](https://htmlview.glitch.me/?https://github.com/abcpaem/tdd-tic-tac-toe-kata/blob/main/docs/TestResults13.html).
 14) Add test to check game over with column winner. See test [here](https://htmlview.glitch.me/?https://github.com/abcpaem/tdd-tic-tac-toe-kata/blob/main/docs/TestResults14.html).
+15) Add test to check game over with diagonal winner. See test [here](https://htmlview.glitch.me/?https://github.com/abcpaem/tdd-tic-tac-toe-kata/blob/main/docs/TestResults15.html).
 
 
 ### What's next?:

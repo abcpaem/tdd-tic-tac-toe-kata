@@ -36,6 +36,7 @@ public class TicTacToe {
 
     public Character getWinner() {
         Character winner = null;
+        String diag1 = "", diag2 = "";
 
         for (int i = 0; i < board.length; i++) {
             String row = "", col = "";
@@ -45,6 +46,9 @@ public class TicTacToe {
 
                 row += row.contains(value1) || row.isBlank() ? value1 : "";
                 col += col.contains(value2) || col.isBlank() ? value2 : "";
+                diag1 += i == j && (diag1.contains(value1) || diag1.isBlank()) ? value1 : "";
+                diag2 += ((i == 0 && j == 2) || (i == 1 && j == 1) || (i == 2 && j == 0))
+                        && (diag2.contains(value1) || diag2.isBlank()) ? value1 : "";
             }
             if (row.length() == 3) {
                 winner = row.charAt(0);
@@ -55,6 +59,12 @@ public class TicTacToe {
                 break;
             }
         }
+        if (diag1.length() == 3)
+            winner = diag1.charAt(0);
+
+        if (diag2.length() == 3)
+            winner = diag2.charAt(0);
+
         return winner;
     }
 
