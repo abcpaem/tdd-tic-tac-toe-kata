@@ -3,6 +3,7 @@ package clan.techreturners;
 import clan.techreturners.testhelper.RandomStub;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.ByteArrayOutputStream;
@@ -118,6 +119,28 @@ public class TicTacToeTests {
 
         //Assert
         assertTrue(game.isGameOver() && winner == null);
+    }
+
+    @ParameterizedTest(name = "{index}) For game: {0} the winner is the first player")
+    @CsvSource(delimiter = '|', textBlock = """
+            A1,B1,A2,B2,A3
+            B1,A1,B2,A2,B3
+            C1,B1,C2,B2,C3
+            """)
+    public void checkIsGameOverWithRawWinner(String moves) {
+        // Arrange
+        TicTacToe game = new TicTacToe();
+        String[] positions = moves.split(",");
+        Character firstPlayer = game.getCurrentPlayer();
+
+        // Act
+        for (String pos : positions) {
+            game.play(pos);
+        }
+        Character winner = game.getWinner();
+
+        //Assert
+        assertTrue(game.isGameOver() && winner == firstPlayer);
     }
 
     @Test

@@ -31,11 +31,25 @@ public class TicTacToe {
     }
 
     public boolean isGameOver() {
-        return countMoves == 9 ? true : false;
+        return countMoves == 9 || getWinner() != null ? true : false;
     }
 
     public Character getWinner() {
-        return null;
+        Character winner = null;
+
+        for (int i = 0; i < board.length; i++) {
+            String row = "";
+            for (int j = 0; j < board.length; j++) {
+                String value1 = String.valueOf(board[i][j]).trim();
+
+                row += row.contains(value1) || row.isBlank() ? value1 : "";
+            }
+            if (row.length() == 3) {
+                winner = row.charAt(0);
+                break;
+            }
+        }
+        return winner;
     }
 
     public boolean play(String position) {

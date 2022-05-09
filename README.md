@@ -30,6 +30,7 @@ The TDD approach will start with the simplest case scenario, then it will grow i
 10) Add test to check play result when board position is not available. See test [here](https://htmlview.glitch.me/?https://github.com/abcpaem/tdd-tic-tac-toe-kata/blob/main/docs/TestResults10.html).
 11) Add test to check play result when board position is not valid. See test [here](https://htmlview.glitch.me/?https://github.com/abcpaem/tdd-tic-tac-toe-kata/blob/main/docs/TestResults11.html).
 12) Add test to check game over with no winner. See test [here](https://htmlview.glitch.me/?https://github.com/abcpaem/tdd-tic-tac-toe-kata/blob/main/docs/TestResults12.html).
+13) Add test to check game over with raw winner. See test [here](https://htmlview.glitch.me/?https://github.com/abcpaem/tdd-tic-tac-toe-kata/blob/main/docs/TestResults13.html).
 
 
 ### What's next?:
