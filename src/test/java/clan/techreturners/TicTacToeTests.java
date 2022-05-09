@@ -103,6 +103,23 @@ public class TicTacToeTests {
         assertFalse(isValidMove);
     }
 
+    @ParameterizedTest(name = "Positions played with no winner: {0}")
+    @ValueSource(strings = "A1,A2,A3,B1,B2,B3,C1,C2,C3")
+    public void checkIsGameOverWithNoWinner(String moves) {
+        // Arrange
+        TicTacToe game = new TicTacToe();
+        String[] positions = moves.split(",");
+
+        // Act
+        for (String pos : positions) {
+            game.play(pos);
+        }
+        Character winner = game.getWinner();
+
+        //Assert
+        assertTrue(game.isGameOver() && winner == null);
+    }
+
     @Test
     void checkDisplayBoard() {
         // Arrange

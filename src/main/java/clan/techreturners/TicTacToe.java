@@ -1,10 +1,10 @@
 package clan.techreturners;
 
-import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
 public class TicTacToe {
+    private int countMoves = 0;
     private int currentPlayerIndex;
     private Character[] players = new Character[]{'X', 'O'};
     char[][] board = {{' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '}};
@@ -30,22 +30,30 @@ public class TicTacToe {
         return players;
     }
 
+    public boolean isGameOver() {
+        return countMoves == 9 ? true : false;
+    }
+
+    public Character getWinner() {
+        return null;
+    }
+
     public boolean play(String position) {
-        if (!isPositionValid(position) || !isPositionAvailable(position)) return false;
+        if (!isPositionValid(position) || !isPositionAvailable(position) || isGameOver()) return false;
 
         board[rows.get(position.toUpperCase().substring(0, 1))][Integer.parseInt(position.substring(1)) - 1] = getCurrentPlayer();
-
         currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
+        countMoves++;
 
         return true;
     }
 
     private boolean isPositionValid(String position) {
-        return position != null && !position.isBlank() && position.toUpperCase().substring(0,1).matches("[ABC]") && position.substring(1).matches("[123]");
+        return position != null && !position.isBlank() && position.toUpperCase().substring(0, 1).matches("[ABC]") && position.substring(1).matches("[123]");
     }
 
     private boolean isPositionAvailable(String position) {
-        return Character.isWhitespace(board[rows.get(position.toUpperCase().substring(0,1))][Integer.parseInt(position.substring(1))-1]);
+        return Character.isWhitespace(board[rows.get(position.toUpperCase().substring(0, 1))][Integer.parseInt(position.substring(1)) - 1]);
     }
 
     public void displayBoard() {
