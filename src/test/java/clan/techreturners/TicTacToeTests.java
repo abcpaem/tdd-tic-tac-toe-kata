@@ -143,6 +143,28 @@ public class TicTacToeTests {
         assertTrue(game.isGameOver() && winner == firstPlayer);
     }
 
+    @ParameterizedTest(name = "{index}) For game: {0} the winner is the first player")
+    @CsvSource(delimiter = '|', textBlock = """
+            A1,A2,B1,A3,C1
+            A2,A1,B2,A3,C2
+            A3,A2,B3,A1,C3
+            """)
+    public void checkIsGameOverWithColumnWinner(String moves) {
+        // Arrange
+        TicTacToe game = new TicTacToe();
+        String[] positions = moves.split(",");
+        Character firstPlayer = game.getCurrentPlayer();
+
+        // Act
+        for (String pos : positions) {
+            game.play(pos);
+        }
+        Character winner = game.getWinner();
+
+        //Assert
+        assertTrue(game.isGameOver() && winner == firstPlayer);
+    }
+
     @Test
     void checkDisplayBoard() {
         // Arrange

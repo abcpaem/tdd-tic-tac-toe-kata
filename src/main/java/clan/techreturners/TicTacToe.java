@@ -38,14 +38,20 @@ public class TicTacToe {
         Character winner = null;
 
         for (int i = 0; i < board.length; i++) {
-            String row = "";
+            String row = "", col = "";
             for (int j = 0; j < board.length; j++) {
                 String value1 = String.valueOf(board[i][j]).trim();
+                String value2 = String.valueOf(board[j][i]).trim();
 
                 row += row.contains(value1) || row.isBlank() ? value1 : "";
+                col += col.contains(value2) || col.isBlank() ? value2 : "";
             }
             if (row.length() == 3) {
                 winner = row.charAt(0);
+                break;
+            }
+            if (col.length() == 3) {
+                winner = col.charAt(0);
                 break;
             }
         }
