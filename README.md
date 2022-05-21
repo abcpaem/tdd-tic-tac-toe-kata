@@ -7,7 +7,7 @@ A Kata in martial arts means “a system of individual training exercises”. Ju
 
 ### What is the goal?
 
-Plan out and spend 30-45 minutes having a go at the Tic Tac Toe Kata using Test-Driven Development. It is not expected to have a finished solution but have had a good go at using Test-Driven Development.
+Implement the Tic Tac Toe Kata using Test-Driven Development.
 
 ### Instructions
 
@@ -36,15 +36,15 @@ The TDD approach will start with the simplest case scenario, then it will grow i
 
 Finally, you can see all the tests passing [here](https://htmlview.glitch.me/?https://github.com/abcpaem/tdd-tic-tac-toe-kata/blob/main/docs/TestResultsAll.html).
 
-
-### What's next?:
-- Continue developing the solution for the Tic Tac Toe game.
-- Add edge case tests during development.
-- Add console application for user interaction.
-
 ---
-## How to run the tests
-- cd to the project root folder in the command line
+### How to run the application
+1) cd to the project root folder in the command line
+2) `mvn compile`
+3) `mvn exec:java -Dexec.mainClass=clan.techreturners.Main`
+
+**Note**: If you have issues displaying unicode characters in command line, please try running cmd in admin mode. 
+
+To run tests use:
 - ``mvn test``
 
 ## Technology
